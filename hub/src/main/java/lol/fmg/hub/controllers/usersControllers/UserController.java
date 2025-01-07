@@ -69,7 +69,15 @@ public class UserController {
         }
         return ResponseEntity.ok(user);
     }
-
+    //ReadOnebyLastName
+    @GetMapping("/search-surname")
+    public ResponseEntity<User> getUserBySurname(@RequestParam String searchSurname) {
+        User user = userRepository.findBySurname(searchSurname);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(user);
+    }
 
     //Updated
     @PutMapping

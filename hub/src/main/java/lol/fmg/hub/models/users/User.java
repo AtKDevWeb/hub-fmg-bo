@@ -16,6 +16,8 @@ public class User {
     private String firstName;
     @Column(nullable = false, length = 50)
     private String lastName;
+    @Column(length = 50)
+    private String surname;
     @Column(nullable = false, length = 150)
     private String email;
     @Column(nullable = false, length = 255)
@@ -80,4 +82,11 @@ public class User {
         this.username = username;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 }
