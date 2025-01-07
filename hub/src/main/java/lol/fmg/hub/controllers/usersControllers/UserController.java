@@ -42,6 +42,35 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    //ReadOnebyLastName
+    @GetMapping("/search-firstName")
+    public ResponseEntity<User> getUserByFirstName(@RequestParam String searchFirstName) {
+        User user = userRepository.findByFirstName(searchFirstName);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(user);
+    }
+    //ReadOnebyLastName
+    @GetMapping("/search-lastName")
+    public ResponseEntity<User> getUserByLastName(@RequestParam String searchLastName) {
+        User user = userRepository.findByLastName(searchLastName);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(user);
+    }
+    //ReadOnebyLastName
+    @GetMapping("/search-eMail")
+    public ResponseEntity<User> getUserByEmail(@RequestParam String searchEmail) {
+        User user = userRepository.findByEmail(searchEmail);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(user);
+    }
+
+
     //Updated
     @PutMapping
     public ResponseEntity<User> updateUser( @PathVariable Long id, @RequestBody User user) {
