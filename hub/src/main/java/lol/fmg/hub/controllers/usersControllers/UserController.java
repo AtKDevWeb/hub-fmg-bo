@@ -32,7 +32,7 @@ public class UserController {
         }
         return ResponseEntity.ok(users);
     }
-    //ReadOnebyId
+    //ReadOneById
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
         User user = userRepository.findById(id).orElse(null);
@@ -42,56 +42,71 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    //ReadOnebyLastName
+    //ReadAllByLastName
     @GetMapping("/search-firstName")
-    public ResponseEntity<User> getUserByFirstName(@RequestParam String searchFirstName) {
-        User user = userRepository.findByFirstName(searchFirstName);
-        if (user == null) {
+    public ResponseEntity<List<User>> getUserByFirstName(@RequestParam String searchFirstName) {
+        List<User> users = userRepository.findByFirstName(searchFirstName);
+        if (users.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(users);
     }
-    //ReadOnebyLastName
+    //ReadAllByLastName
     @GetMapping("/search-lastName")
-    public ResponseEntity<User> getUserByLastName(@RequestParam String searchLastName) {
-        User user = userRepository.findByLastName(searchLastName);
-        if (user == null) {
+    public ResponseEntity<List<User>> getUserByLastName(@RequestParam String searchLastName) {
+        List<User> users = userRepository.findByLastName(searchLastName);
+        if (users.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(user);
     }
-    //ReadOnebyLastName
+    //ReadAllByLastName
     @GetMapping("/search-eMail")
-    public ResponseEntity<User> getUserByEmail(@RequestParam String searchEmail) {
-        User user = userRepository.findByEmail(searchEmail);
-        if (user == null) {
+    public ResponseEntity<List<User>> getUserByEmail(@RequestParam String searchEmail) {
+        List<User> users = userRepository.findByEmail(searchEmail);
+        if (users .isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(user);
     }
-    //ReadOnebyLastName
+    //ReadAllByLastName
     @GetMapping("/search-surname")
-    public ResponseEntity<User> getUserBySurname(@RequestParam String searchSurname) {
-        User user = userRepository.findBySurname(searchSurname);
-        if (user == null) {
+    public ResponseEntity<List<User>> getUserBySurname(@RequestParam String searchSurname) {
+        List<User> user = userRepository.findBySurname(searchSurname);
+        if (user .isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(user);
     }
 
     //Updated
-    @PutMapping
-    public ResponseEntity<User> updateUser( @PathVariable Long id, @RequestBody User user) {
-        return ResponseEntity.ok(updatedUser);
-    }
-    //Delete
-    @DeleteMapping
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        if () {
-            return ResponseEntity.noContent().build();
-        }else {
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser( @PathVariable Long id, @RequestBody User updatedUser) {
+        User user = userRepository.findById(id).orElse(null);
+
+        if (user == null) {
             return ResponseEntity.notFound().build();
         }
 
+        user.setFirstName(updatedUser.getFirstName());
+        user.setLastName(updatedUser.getLastName());
+        user.setEmail(updatedUser.getEmail());
+        user.setSurname(updatedUser.getSurname());
+
+        User savedUser = userRepository.save(user);
+
+        return ResponseEntity.ok(savedUser);
+    }
+
+    //Delete
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        User user = userRepository.findById(id).orElse(null);
+
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        userRepository.delete(user);
+        return ResponseEntity.noContent().build();
     }
 }
