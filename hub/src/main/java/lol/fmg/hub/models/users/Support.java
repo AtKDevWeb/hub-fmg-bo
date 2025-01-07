@@ -9,13 +9,13 @@ public class Support {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(nullable = false, length = 50)
     private String denomination;
-    @Column
+    @Column(nullable = false, length = 12)
     private String slug;
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String description;
-    @Column
+    @Column(length = 250)
     private String url_imageLogo;
 
     public String getDenomination() {
