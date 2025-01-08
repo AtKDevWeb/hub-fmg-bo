@@ -13,15 +13,15 @@ public class Game {
     private String title;
     @Column(columnDefinition = "TEXT")
     private String description;
-    @Column
+    @Column(length = 255)
     private String urlImage;
-    @Column
+    @Column(length = 255)
     private String urlVideo;
-    @Column
+    @Column(length = 255)
     private String genres;
-    @Column
+    @Column(length = 255)
     private String platforms;
-    @Column
+    @Column(length = 255)
     private String summary;
 
     public String getDescription() {
