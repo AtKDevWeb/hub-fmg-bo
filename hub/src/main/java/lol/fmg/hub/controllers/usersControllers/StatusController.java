@@ -28,7 +28,7 @@ public class StatusController {
     @GetMapping
     public ResponseEntity<List<Status>> getAllStatus() {
         List<Status> status = statusRepository.findAll();
-        if (statuss.isEmpty()) {
+        if (status.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(status);
@@ -66,7 +66,7 @@ public class StatusController {
     }
 
     //DeletedById
-    @DeleteMapping("/statusId")
+    @DeleteMapping("/{statusId}")
     public ResponseEntity<Void> deleteStatus(@PathVariable Long statusId) {
         Status status = statusRepository.findById(statusId).orElse(null);
         if (status == null) {
