@@ -8,8 +8,8 @@ public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String status;
+    @Column(nullable = false)
+    private String designation;
 
     public Long getId() {
         return id;
@@ -18,4 +18,13 @@ public class Status {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
 }
