@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class EventController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedEvent);
     }
 
-    // Read All
+    // ReadAll
     @GetMapping
     public ResponseEntity<List<Event>> getEvents() {
         List<Event> events = eventRepository.findAll();
@@ -35,7 +36,127 @@ public class EventController {
         return ResponseEntity.ok(events);
     }
 
-    // Read One By ID
+    // ReadAllByTitleContaining
+    @GetMapping("/search-terms")
+    public ResponseEntity<List<Event>> getEventsByTitleContaining(@RequestParam String searchTerms) {
+        List<Event> events = eventRepository.findAllByTitleContainingIgnoreCase(searchTerms);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByTitleContaining
+    @GetMapping("/search-termsInDescription")
+    public ResponseEntity<List<Event>> getEventsByDescriptionContaining(@RequestParam String searchTermsInDescription) {
+        List<Event> events = eventRepository.findAllByDescriptionContainingIgnoreCase(searchTermsInDescription);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+    // ReadAllByStatus
+    @GetMapping("/search-status")
+    public ResponseEntity<List<Event>> getEventsByStatus(@RequestParam String searchStatus) {
+        List<Event> events = eventRepository.findAllByStatus(searchStatus);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByAllByStartDate
+    @GetMapping("/search-status")
+    public ResponseEntity<List<Event>> getEventsByStatus(@RequestParam String searchStatus) {
+        List<Event> events = eventRepository.findAllByStatus(searchStatus);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByAllByStartDateBetween
+    @GetMapping("/search-startDateBetween")
+    public ResponseEntity<List<Event>> getEventsByStartDateBetween(@RequestParam Date startDate, Date endDate) {
+        List<Event> events = eventRepository.findAllByStartDateBetween(startDate, endDate);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByStartDateAfter
+    @GetMapping("/search-startDateAfter")
+    public ResponseEntity<List<Event>> getEventsByStartDateAfter(@RequestParam Date searchStartDateAfter) {
+        List<Event> events = eventRepository.findAllByStartDateAfter(searchStartDateAfter);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByAllByStartDateBefore
+    @GetMapping("/search-startDateBefore")
+    public ResponseEntity<List<Event>> getEventsByStartDateBefore(@RequestParam Date searchStartDateBefore) {
+        List<Event> events = eventRepository.findAllByStartDateBefore(searchStartDateBefore);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+    //here
+    // ReadAllByStatus
+    @GetMapping("/search-status")
+    public ResponseEntity<List<Event>> getEventsByStatus(@RequestParam String searchStatus) {
+        List<Event> events = eventRepository.findAllByStatus(searchStatus);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByStatus
+    @GetMapping("/search-status")
+    public ResponseEntity<List<Event>> getEventsByStatus(@RequestParam String searchStatus) {
+        List<Event> events = eventRepository.findAllByStatus(searchStatus);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByStatus
+    @GetMapping("/search-status")
+    public ResponseEntity<List<Event>> getEventsByStatus(@RequestParam String searchStatus) {
+        List<Event> events = eventRepository.findAllByStatus(searchStatus);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByStatus
+    @GetMapping("/search-status")
+    public ResponseEntity<List<Event>> getEventsByStatus(@RequestParam String searchStatus) {
+        List<Event> events = eventRepository.findAllByStatus(searchStatus);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+    // ReadAllByStatus
+    @GetMapping("/search-status")
+    public ResponseEntity<List<Event>> getEventsByStatus(@RequestParam String searchStatus) {
+        List<Event> events = eventRepository.findAllByStatus(searchStatus);
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(events);
+    }
+
+
+    // ReadOneByID
     @GetMapping("/{id}")
     public ResponseEntity<Event> getEvent(@PathVariable Long id) {
         Event event = eventRepository.findById(id).orElse(null);

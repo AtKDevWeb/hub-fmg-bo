@@ -16,7 +16,12 @@ public class Event {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
     @Column (nullable = false)
-    private LocalDateTime updatedAt;
+    private LocalDateTime startDate;
+    @Column (nullable = false)
+    private LocalDateTime endDate;
+    @Column(nullable = false)
+    private String status;
+
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
@@ -56,5 +61,29 @@ public class Event {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
