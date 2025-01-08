@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface StructureRepository extends JpaRepository<Structure, Long> {
     List<Structure> findByName(String name);
+    List<Structure> findByType(String type);
     List<Structure> findByUrlEmail(String url_email);
     List<Structure> findByPhone(String phone);
 }
+

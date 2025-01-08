@@ -34,6 +34,18 @@ public class StructureController {
         }
         return ResponseEntity.ok(allStructures);
     }
+
+    //ReadOneById
+    @GetMapping("/{id}")
+    public ResponseEntity<Structure> GetStructure(@PathVariable long id) {
+        Structure structure = structureRepository.findById(id).orElse(null);
+        if (structure == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(structure);
+
+    }
+
     //ReadAllByName
     @GetMapping("/search-name")
     public ResponseEntity<List<Structure>> GetAllStructuresByName(@RequestParam String searchName) {
@@ -64,16 +76,16 @@ public class StructureController {
         return ResponseEntity.ok(allStructuresByPhone);
     }
 
-    //ReadOneById
-    @GetMapping("/{id}")
-    public ResponseEntity<Structure> GetStructure(@PathVariable long id) {
-        Structure structure = structureRepository.findById(id).orElse(null);
-        if (structure == null) {
+    //ReadOneByType
+    @GetMapping("/search-type")
+    public ResponseEntity<List<Structure>> GetAllStructuresByType(@RequestParam String searchType) {
+        List<Structure> allStructuresByType = structureRepository.findByType(searchType);
+        if (allStructuresByType.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(structure);
-
+        return ResponseEntity.ok(allStructuresByType);
     }
+
     //Updated
     @PutMapping("/{id}")
     public ResponseEntity<Structure> UpdateStructure(@PathVariable long id, @RequestBody Structure structure) {
@@ -86,6 +98,7 @@ public class StructureController {
         structure.setDescription(updatedStructure.getDescription());
         structure.setLogo(updatedStructure.getLogo());
         structure.setDescription(updatedStructure.getDescription());
+        structure.setType(updatedStructure.getType());
         structure.setPhone(updatedStructure.getPhone());
         structure.setStreetNumber(updatedStructure.getStreetNumber());
         structure.setStreetNumberComplement(updatedStructure.getStreetNumberComplement());
