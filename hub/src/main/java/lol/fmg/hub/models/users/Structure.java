@@ -14,11 +14,25 @@ public class Structure {
     @Column(columnDefinition = "TEXT")
     private String description;
     @Column(nullable = false, length = 255)
-    private String image;
+    private String logo;
+    @Column(length = 50)
+    private String phone;
+    @Column(length = 50)
+    private String streetNumber;
+    @Column(length = 50)
+    private String streetNumberComplement;
+    @Column(length = 150)
+    private String streetAddress;
+    @Column(length = 5)
+    private Integer zipCode;
+    @Column (length = 50)
+    private String city;
+    @Column (length = 50)
+    private String country;
     @Column(length = 155)
-    private String url_email;
+    private String urlEmail;
     @Column(length = 155)
-    private String url_website;
+    private String urlWebsite;
     @Column(nullable = false, length = 50)
     private String type;
 
@@ -38,12 +52,12 @@ public class Structure {
         this.id = id;
     }
 
-    public String getImage() {
-        return image;
+    public String getLogo() {
+        return logo;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public String getName() {
@@ -62,19 +76,75 @@ public class Structure {
         this.type = type;
     }
 
-    public String getUrl_email() {
-        return url_email;
+    public Integer getZipCode() {
+        return zipCode;
     }
 
-    public void setUrl_email(String url_email) {
-        this.url_email = url_email;
+    public void setZipCode(Integer zipCode) {
+        this.zipCode = zipCode;
     }
 
-    public String getUrl_website() {
-        return url_website;
+    public String getStreetNumberComplement() {
+        return streetNumberComplement;
     }
 
-    public void setUrl_website(String url_website) {
-        this.url_website = url_website;
+    public void setStreetNumberComplement(String streetNumberComplement) {
+        this.streetNumberComplement = streetNumberComplement;
+    }
+
+    public String getStreetNumber() {
+        return streetNumber;
+    }
+
+    public void setStreetNumber(String streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getUrlEmail() {
+        return urlEmail;
+    }
+
+    public void setUrlEmail(String urlEmail) {
+        this.urlEmail = urlEmail;
+    }
+
+    public String getUrlWebsite() {
+        return urlWebsite;
+    }
+
+    public void setUrlWebsite(String urlWebsite) {
+        this.urlWebsite = urlWebsite;
     }
 }
