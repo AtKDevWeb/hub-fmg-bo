@@ -9,9 +9,9 @@ public class SocialNetwork {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(length = 50)
     private String name;
-    @Column
+    @Column(length = 250)
     private String url_Logo;
 
     public Long getId() {
