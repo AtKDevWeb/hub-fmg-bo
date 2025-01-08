@@ -9,10 +9,15 @@ public class Permission {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private boolean write;
+    @Column(nullable = false)
     private boolean read;
+    @Column(nullable = false)
     private boolean create;
+    @Column(nullable = false)
     private boolean update;
+    @Column(nullable = false)
     private boolean delete;
 
     public boolean isCreate() {
