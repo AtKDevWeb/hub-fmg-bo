@@ -63,7 +63,7 @@ public class PermissionController {
     }
 
     // Delete
-    @DeleteMapping("/permissionId")
+    @DeleteMapping("/{permissionId}")
     public ResponseEntity<Void> deletePermission(@PathVariable Long permissionId) {
         Permission permission = permissionRepository.findById(permissionId).orElse(null);
         if (permission == null) {
