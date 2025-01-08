@@ -58,7 +58,7 @@ public class UserController {
         if (users.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(users);
     }
     //ReadAllByLastName
     @GetMapping("/search-eMail")
