@@ -4,7 +4,6 @@ import lol.fmg.hub.models.events.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
@@ -15,16 +14,16 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
     List<Event> findAllByStatus(String status);
 
-    List<Event> findAllByStartDate(Date startDate);
-    List<Event> findAllByStartDateBetween(Date startDate, Date startDate2);
-    List<Event> findAllByStartDateAfter(Date startDateAfter);
-    List<Event> findAllByStartDateBefore(Date startDateBefore);
+    List<Event> findAllByStartDate(LocalDateTime startDate);
+    List<Event> findAllByStartDateBetween(LocalDateTime startDate, LocalDateTime startDate2);
+    List<Event> findAllByStartDateAfter(LocalDateTime startDateAfter);
+    List<Event> findAllByStartDateBefore(LocalDateTime startDateBefore);
 
-    List<Event> findAllByEndDate(Date EndDate);
-    List<Event> findAllByEndDateBetween(Date startDate, Date endDate);
-    List<Event> findAllByEndDateAfter(Date endDateAfter);
-    List<Event> findAllByEndDateBefore(Date endDateDateBefore);
+    List<Event> findAllByEndDate(LocalDateTime EndDate);
+    List<Event> findAllByEndDateBetween(LocalDateTime endDate, LocalDateTime endDate2);
+    List<Event> findAllByEndDateAfter(LocalDateTime endDateAfter);
+    List<Event> findAllByEndDateBefore(LocalDateTime endDateDateBefore);
 
-    List<Event> findByLocation(String location);
+    List<Event> findAllByLocation(String location);
 
 }
