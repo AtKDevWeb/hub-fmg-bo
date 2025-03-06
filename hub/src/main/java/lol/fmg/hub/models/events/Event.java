@@ -1,89 +1,54 @@
 package lol.fmg.hub.models.events;
 
+
 import jakarta.persistence.*;
+import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+@Data
 @Entity
 public class Event {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
-    private String description;
-    private String location;
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-    @Column (nullable = false)
-    private LocalDateTime startDate;
-    @Column (nullable = false)
-    private LocalDateTime endDate;
+    @GeneratedValue
+    private Integer id;
+
     @Column(nullable = false)
-    private String status;
+    private String name;
 
+    @Column(nullable = false)
+    private LocalDate creationDate;
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
+    @Column(nullable = false)
+    private LocalDate startDate;
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    @Column(nullable = false)
+    private LocalDate endDate;
 
-    public String getDescription() {
-        return description;
-    }
+    @Column(nullable = false)
+    private String statusEnum;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<EventEventTag> eventEventTagList = new ArrayList<>();
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<UserEventParticipate> userEventParticipateList = new ArrayList<>();
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToOne(mappedBy = "event")
+    private EventEventCategory eventEventCategory;
 
-    public String getLocation() {
-        return location;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<EventUserBaseOn> eventUserBaseOnList = new ArrayList<>();
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<SupportEventOccursOn> supportEventOccursOnList = new ArrayList<>();
 
-    public String getTitle() {
-        return title;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<EventUserContribute> eventUserContributeList = new ArrayList<>();
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<EventArticleRelatesto> eventArticleRelatestoList = new ArrayList<>();
 }

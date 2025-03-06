@@ -1,39 +1,26 @@
 package lol.fmg.hub.models.blog;
 
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
 @Entity
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    private Integer id;
 
-    @Column (nullable = false)
-    private String title;
-    @Column (columnDefinition = "TEXT")
+    @Column(nullable = false)
+    private String name;
+    // Description of the category
+
+    @Column(nullable = false)
+
     private String description;
+    @OneToMany(mappedBy = "category")
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    private List<ArticleCategory> articleCategoryList = new ArrayList<>();
 }

@@ -1,38 +1,24 @@
 package lol.fmg.hub.models.events;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
 @Entity
 public class EventCategory {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+    @GeneratedValue
+    private Integer id;
+    @Column(nullable = false)
 
     private String name;
+
+    // Description of the category
     private String description;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    @OneToMany(mappedBy = "eventCategory")
+    private List<EventEventCategory> eventEventCategoryList = new ArrayList<>();
 }
