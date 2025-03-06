@@ -5,7 +5,7 @@ public enum VideoEnumType {
     MP4(".mp4"),
     MKV(".mkv"),
     MOV(".mov"),
-    WEBM(".webm"),
+    WEBM(".webm");
 
     private final String label;
 
