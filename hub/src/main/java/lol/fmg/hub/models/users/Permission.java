@@ -2,70 +2,18 @@ package lol.fmg.hub.models.users;
 
 import jakarta.persistence.*;
 
+
+@Data
 @Entity
 public class Permission {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @GeneratedValue
+    private Integer id;
     @Column(nullable = false)
-    private boolean write;
+    private String permisionType;
     @Column(nullable = false)
-    private boolean read;
-    @Column(nullable = false)
-    private boolean create;
-    @Column(nullable = false)
-    private boolean update;
-    @Column(nullable = false)
-    private boolean delete;
-
-    public boolean isCreate() {
-
-        return create;
-    }
-
-    public void setCreate(boolean create) {
-        this.create = create;
-    }
-
-    public boolean isDelete() {
-        return delete;
-    }
-
-    public void setDelete(boolean delete) {
-        this.delete = delete;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public boolean isRead() {
-        return read;
-    }
-
-    public void setRead(boolean read) {
-        this.read = read;
-    }
-
-    public boolean isUpdate() {
-        return update;
-    }
-
-    public void setUpdate(boolean update) {
-        this.update = update;
-    }
-
-    public boolean isWrite() {
-        return write;
-    }
-
-    public void setWrite(boolean write) {
-        this.write = write;
-    }
+    private Boolean isGranted;
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Status status;
 }

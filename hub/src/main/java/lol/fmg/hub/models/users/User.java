@@ -2,91 +2,56 @@ package lol.fmg.hub.models.users;
 
 
 import jakarta.persistence.*;
+import lol.fmg.hub.models.ads.CampaignUserAdministrate;
+import lol.fmg.hub.models.blog.Comment;
+import lol.fmg.hub.models.blog.Image;
+import lol.fmg.hub.models.events.EventUserContribute;
+import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
 @Entity
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Status status;
 
-    @Column(nullable = false, length = 42)
-    private String username;
-    @Column(nullable = false, length = 50)
-    private String firstName;
-    @Column(nullable = false, length = 50)
-    private String lastName;
-    @Column(length = 50)
+    @Column(nullable = false)
+    private String firstname;
+    @Column(nullable = false)
+    private String lastname;
+    @Column(nullable = false)
     private String surname;
-    @Column(nullable = false, length = 150)
+    @Lob
+    private String description;
     private String email;
-    @Column(nullable = false, length = 255)
+
+    // enregistré crypté en base
+    @Column(nullable = false)
     private String password;
-    @Column (columnDefinition = "TEXT")
-    private String user_description;
 
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUser_description() {
-        return user_description;
-    }
-
-    public void setUser_description(String user_description) {
-        this.user_description = user_description;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
+    @OneToMany(mappedBy = "user")
+    private List<UserSocialnetwork> userSocialnetworkList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<UserGame> userGameList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<UserSupport> userSupportList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<UserEventParticipate> userEventParticipateList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<StructureUser> structureUserList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<UserArticleWrite> userArticleWriteList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<CampaignUserAdministrate> campaignUserAdministrateList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<EventUserContribute> eventUserContributeList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<Image> imageList = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<Comment> commentList = new ArrayList<>();
 }

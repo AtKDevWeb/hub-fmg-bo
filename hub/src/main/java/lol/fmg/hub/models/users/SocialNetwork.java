@@ -2,39 +2,14 @@ package lol.fmg.hub.models.users;
 
 import jakarta.persistence.*;
 
+@Data
 @Entity
-public class SocialNetwork {
-
+public class Socialnetwork {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(length = 50)
-    private String name;
-    @Column(length = 250)
-    private String url_Logo;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUrl_Logo() {
-        return url_Logo;
-    }
-
-    public void setUrl_Logo(String url_Logo) {
-        this.url_Logo = url_Logo;
-    }
+    @GeneratedValue
+    private Integer id;
+    private String denomination;
+    private String urlSrc;
+    @OneToMany(mappedBy = "socialnetwork")
+    private List<UserSocialnetwork> userSocialnetworkList = new ArrayList<>();
 }

@@ -2,29 +2,18 @@ package lol.fmg.hub.models.users;
 
 import jakarta.persistence.*;
 
+
+
+@Data
 @Entity
 public class Status {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false)
+    @GeneratedValue
+    private Integer id;
     private String designation;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDesignation() {
-        return designation;
-    }
-
-    public void setDesignation(String designation) {
-        this.designation = designation;
-    }
-
+    @OneToMany(mappedBy = "status")
+    private List<User> userList = new ArrayList<>();
+    @OneToMany(mappedBy = "status")
+    private List<Permission> permissionList = new ArrayList<>();
 }
+
