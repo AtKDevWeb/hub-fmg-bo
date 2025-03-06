@@ -8,9 +8,9 @@ public enum UserStatusEnum {
     USER("User"),
     VISITOR("Visitor");
 
-    private String label;
+    private final String label;
     UserStatusEnum(String label) {
-        this.value = label;
+        this.label = label;
     }
     public String getlabel() {
         return label;
