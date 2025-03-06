@@ -3,7 +3,8 @@ package lol.fmg.hub.models.ads;
 import lombok.Data;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity

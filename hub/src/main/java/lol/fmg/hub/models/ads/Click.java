@@ -3,6 +3,8 @@ package lol.fmg.hub.models.ads;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 @Entity
 public class Click {

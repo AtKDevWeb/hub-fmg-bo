@@ -11,9 +11,11 @@ public class ArticleCategory {
     @ManyToOne
     @JoinColumn(name = "article_id")
     private Article article;
+
     @Id
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
 }
 

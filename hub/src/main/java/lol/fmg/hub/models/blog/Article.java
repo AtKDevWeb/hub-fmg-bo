@@ -1,5 +1,7 @@
 package lol.fmg.hub.models.blog;
 
+import lol.fmg.hub.models.events.EventArticleRelatesto;
+import lol.fmg.hub.models.users.UserArticleWrite;
 import lombok.Data;
 import jakarta.persistence.*;
 
