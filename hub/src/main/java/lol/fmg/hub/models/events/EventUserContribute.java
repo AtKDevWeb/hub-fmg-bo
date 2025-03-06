@@ -1,6 +1,7 @@
 package lol.fmg.hub.models.events;
 
 import jakarta.persistence.*;
+import lol.fmg.hub.models.users.User;
 import lombok.Data;
 
 @Data

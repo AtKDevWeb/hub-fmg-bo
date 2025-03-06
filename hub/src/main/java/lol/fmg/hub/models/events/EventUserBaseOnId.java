@@ -1,6 +1,7 @@
 package lol.fmg.hub.models.events;
 
 
+import lol.fmg.hub.models.users.Game;
 import lombok.Data;
 
 import java.io.Serializable;

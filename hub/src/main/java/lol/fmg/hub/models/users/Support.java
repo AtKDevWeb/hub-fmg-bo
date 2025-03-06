@@ -1,6 +1,10 @@
 package lol.fmg.hub.models.users;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,6 +21,8 @@ public class Support {
 
     @OneToMany(mappedBy = "support")
     private List<UserSupport> userSupportList = new ArrayList<>();
+
     @OneToMany(mappedBy = "support")
     private List<SupportEventOccursOn> supportEventOccursOnList = new ArrayList<>();
+
 }

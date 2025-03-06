@@ -1,6 +1,7 @@
 package lol.fmg.hub.models.users;
 
 import jakarta.persistence.*;
+import lol.fmg.hub.models.events.EventUserBaseOn;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class Game {
 
     @OneToMany(mappedBy = "game")
     private List<UserGame> userGameList = new ArrayList<>();
+
     @OneToMany(mappedBy = "game")
     private List<EventUserBaseOn> eventUserBaseOnList = new ArrayList<>();
 }

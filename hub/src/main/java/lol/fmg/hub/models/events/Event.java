@@ -2,6 +2,8 @@ package lol.fmg.hub.models.events;
 
 
 import jakarta.persistence.*;
+import lol.fmg.hub.models.users.SupportEventOccursOn;
+import lol.fmg.hub.models.users.UserEventParticipate;
 import lombok.Data;
 
 import java.time.LocalDate;

@@ -12,8 +12,8 @@ public class EventEventTag {
     @ManyToOne
     @JoinColumn(name = "event_tag_id")
     private EventTag eventTag;
-    @Id
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "event_id")
     private Event event;

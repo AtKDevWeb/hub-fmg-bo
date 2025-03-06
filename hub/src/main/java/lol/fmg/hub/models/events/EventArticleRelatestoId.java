@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 @Data
 public class EventArticleRelatestoId implements Serializable {
+
     private Article article;
     private Event event;
+
 }
