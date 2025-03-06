@@ -4,9 +4,6 @@ import jakarta.persistence.*;
 import lol.fmg.hub.models.events.Event;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @Entity
 @IdClass(SupportEventOccursOnId.class)
