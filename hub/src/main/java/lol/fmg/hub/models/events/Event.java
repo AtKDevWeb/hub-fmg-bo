@@ -2,6 +2,7 @@ package lol.fmg.hub.models.events;
 
 
 import jakarta.persistence.*;
+import lol.fmg.hub.models.enums.StatusEnum;
 import lol.fmg.hub.models.users.SupportEventOccursOn;
 import lol.fmg.hub.models.users.UserEventParticipate;
 import lombok.Data;
@@ -30,8 +31,9 @@ public class Event {
     @Column(nullable = false)
     private LocalDate endDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String statusEnum;
+    private StatusEnum statusEnum;
 
     @OneToMany(mappedBy = "event")
     private List<EventEventTag> eventEventTagList = new ArrayList<>();

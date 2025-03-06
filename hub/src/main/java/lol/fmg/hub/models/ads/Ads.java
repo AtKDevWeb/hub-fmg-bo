@@ -35,6 +35,5 @@ public class Ads {
         @OneToMany(mappedBy = "ads")
         private List<AdsImageRepresent> adsImageRepresentList = new ArrayList<>();
 
-
 }
 

@@ -2,6 +2,8 @@ package lol.fmg.hub.models.blog;
 
 import jakarta.persistence.*;
 import lol.fmg.hub.models.ads.AdsVideoInsert;
+import lol.fmg.hub.models.enums.StatusEnum;
+import lol.fmg.hub.models.enums.VideoEnumType;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -30,15 +32,19 @@ public class Video {
     @Column(nullable = false)
     private Boolean poster;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String type;
+    private VideoEnumType typeEnum;
 
     @Column(nullable = false)
     private Boolean playinline;
 
     // description of the video
     private String description;
-    private String statusEnum;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusEnum statusEnum;
 
     @OneToMany(mappedBy = "video")
     private List<ArticleVideo> articleVideoList = new ArrayList<>();

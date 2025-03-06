@@ -3,6 +3,7 @@ package lol.fmg.hub.models.users;
 
 import jakarta.persistence.*;
 
+import lol.fmg.hub.models.enums.PermissionTypeEnum;
 import lombok.Data;
 
 
@@ -14,8 +15,9 @@ public class Permission {
     @GeneratedValue
     private Integer id;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String permisionType;
+    private PermissionTypeEnum permisionType;
 
     @Column(nullable = false)
     private Boolean isGranted;

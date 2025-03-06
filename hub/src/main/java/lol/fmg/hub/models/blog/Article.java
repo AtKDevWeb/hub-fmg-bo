@@ -1,5 +1,6 @@
 package lol.fmg.hub.models.blog;
 
+import lol.fmg.hub.models.enums.StatusEnum;
 import lol.fmg.hub.models.events.EventArticleRelatesto;
 import lol.fmg.hub.models.users.UserArticleWrite;
 import lombok.Data;
@@ -21,7 +22,7 @@ public class Article {
 
     // Content of the article
     @Column(nullable = false)
-    @Lob
+
     private String content;
 
     // short text to resume the article
@@ -29,8 +30,9 @@ public class Article {
 
     private String synopsis;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String statusEnum;
+    private StatusEnum statusEnum;
 
     @OneToMany(mappedBy = "article")
     private List<ArticleVideo> articleVideoList = new ArrayList<>();

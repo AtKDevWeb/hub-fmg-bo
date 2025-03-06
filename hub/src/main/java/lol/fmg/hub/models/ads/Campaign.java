@@ -1,5 +1,6 @@
 package lol.fmg.hub.models.ads;
 
+import lol.fmg.hub.models.enums.StatusEnum;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -34,7 +35,9 @@ public class Campaign {
     @Column(nullable = false)
     private LocalDate endDate;
 
-    private String statusEnum;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusEnum statusEnum;
 
     @OneToMany(mappedBy = "campaign")
     private List<Ads> adsList = new ArrayList<>();
