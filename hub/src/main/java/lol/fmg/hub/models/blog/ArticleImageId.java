@@ -1,7 +1,9 @@
 package lol.fmg.hub.models.blog;
 
 import lombok.Data;
-import jakarta.persistence.*;
+
+import java.io.Serializable;
+
 
 @Data
 public class ArticleImageId implements Serializable {

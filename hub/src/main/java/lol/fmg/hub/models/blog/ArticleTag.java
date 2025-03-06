@@ -1,22 +1,18 @@
 package lol.fmg.hub.models.blog;
 
-import lombok.Data;
 import jakarta.persistence.*;
-
+import lombok.Data;
 
 @Data
 @Entity
-@IdClass(ArticleImageId.class)
-public class ArticleImage {
-
+@IdClass(ArticleTagId.class)
+public class ArticleTag {
     @Id
     @ManyToOne
     @JoinColumn(name = "article_id")
     private Article article;
-
     @Id
     @ManyToOne
-    @JoinColumn(name = "image_id")
-    private Image image;
-
+    @JoinColumn(name = "tag_id")
+    private Tag tag;
 }
