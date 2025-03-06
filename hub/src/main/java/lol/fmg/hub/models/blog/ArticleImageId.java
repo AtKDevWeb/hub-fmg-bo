@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 @Data
 public class ArticleImageId implements Serializable {
+
     private Article article;
     private Image image;
+
 }

@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 @Data
 public class ArticleVideoId implements Serializable {
+
     private Article article;
     private Video video;
+
 }

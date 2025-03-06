@@ -15,12 +15,11 @@ public class Category {
 
     @Column(nullable = false)
     private String name;
+
     // Description of the category
-
     @Column(nullable = false)
-
     private String description;
-    @OneToMany(mappedBy = "category")
 
+    @OneToMany(mappedBy = "category")
     private List<ArticleCategory> articleCategoryList = new ArrayList<>();
 }

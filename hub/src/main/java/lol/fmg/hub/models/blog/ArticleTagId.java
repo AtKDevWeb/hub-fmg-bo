@@ -6,7 +6,9 @@ import java.io.Serializable;
 
 @Data
 public class ArticleTagId implements Serializable {
+
     private Article article;
     private Tag tag;
+
 }
 
