@@ -5,13 +5,15 @@ import jakarta.persistence.*;
 import lol.fmg.hub.models.enums.StatusEnum;
 import lol.fmg.hub.models.users.SupportEventOccursOn;
 import lol.fmg.hub.models.users.UserEventParticipate;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Event {
 

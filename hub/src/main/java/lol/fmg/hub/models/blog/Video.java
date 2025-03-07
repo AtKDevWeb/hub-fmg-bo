@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import lol.fmg.hub.models.ads.AdsVideoInsert;
 import lol.fmg.hub.models.enums.StatusEnum;
 import lol.fmg.hub.models.enums.VideoEnumType;
-import lombok.Data;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Video {
 

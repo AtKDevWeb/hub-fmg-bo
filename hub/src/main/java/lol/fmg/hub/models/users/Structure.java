@@ -3,12 +3,14 @@ package lol.fmg.hub.models.users;
 import jakarta.persistence.*;
 
 import lol.fmg.hub.models.enums.StructureTypeEnum;
-import lombok.Data;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Structure {
     @Id

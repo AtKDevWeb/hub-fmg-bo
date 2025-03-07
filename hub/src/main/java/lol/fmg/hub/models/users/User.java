@@ -6,12 +6,14 @@ import lol.fmg.hub.models.ads.CampaignUserAdministrate;
 import lol.fmg.hub.models.blog.Comment;
 import lol.fmg.hub.models.blog.Image;
 import lol.fmg.hub.models.events.EventUserContribute;
-import lombok.Data;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class User {
 

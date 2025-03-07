@@ -3,13 +3,15 @@ package lol.fmg.hub.models.blog;
 import lol.fmg.hub.models.enums.StatusEnum;
 import lol.fmg.hub.models.events.EventArticleRelatesto;
 import lol.fmg.hub.models.users.UserArticleWrite;
-import lombok.Data;
+import lombok.*;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Article {
 

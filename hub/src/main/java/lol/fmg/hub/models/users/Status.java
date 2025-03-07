@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import lol.fmg.hub.models.enums.PermissionTypeEnum;
 
 import lol.fmg.hub.models.enums.UserStatusEnum;
-import lombok.Data;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Status {
 

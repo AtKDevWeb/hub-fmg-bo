@@ -1,10 +1,12 @@
 package lol.fmg.hub.models.events;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @IdClass(EventEventCategoryId.class)
 public class EventEventCategory {

@@ -2,9 +2,11 @@ package lol.fmg.hub.models.users;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @IdClass(UserSupportId.class)
 public class UserSupport {

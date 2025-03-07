@@ -2,9 +2,11 @@ package lol.fmg.hub.models.users;
 
 import jakarta.persistence.*;
 import lol.fmg.hub.models.blog.Article;
-import lombok.Data;
+import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @IdClass(UserArticleWriteId.class)
 public class UserArticleWrite {

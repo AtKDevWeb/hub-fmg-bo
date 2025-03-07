@@ -2,9 +2,11 @@ package lol.fmg.hub.models.events;
 
 import lol.fmg.hub.models.users.Game;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @IdClass(EventUserBaseOnId.class)
 public class EventUserBaseOn {

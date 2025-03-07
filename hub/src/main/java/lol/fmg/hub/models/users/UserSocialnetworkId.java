@@ -1,10 +1,12 @@
 package lol.fmg.hub.models.users;
 
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserSocialnetworkId implements Serializable {
     private User user;
     private Socialnetwork socialnetwork;

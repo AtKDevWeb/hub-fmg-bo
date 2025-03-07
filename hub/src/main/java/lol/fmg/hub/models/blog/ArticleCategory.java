@@ -1,9 +1,11 @@
 package lol.fmg.hub.models.blog;
 
-import lombok.Data;
+import lombok.*;
 import jakarta.persistence.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @IdClass(ArticleCategoryId.class)
 public class ArticleCategory {

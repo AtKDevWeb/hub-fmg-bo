@@ -2,9 +2,11 @@ package lol.fmg.hub.models.events;
 
 import jakarta.persistence.*;
 import lol.fmg.hub.models.blog.Article;
-import lombok.Data;
+import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @IdClass(EventArticleRelatestoId.class)
 public class EventArticleRelatesto {

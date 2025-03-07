@@ -4,10 +4,12 @@ package lol.fmg.hub.models.users;
 import jakarta.persistence.*;
 
 import lol.fmg.hub.models.enums.PermissionTypeEnum;
-import lombok.Data;
+import lombok.*;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Permission {
 

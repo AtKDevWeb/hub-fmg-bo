@@ -2,9 +2,11 @@ package lol.fmg.hub.models.blog;
 
 import jakarta.persistence.*;
 import lol.fmg.hub.models.users.User;
-import lombok.Data;
+import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Comment {
 
