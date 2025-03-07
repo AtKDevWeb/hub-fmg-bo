@@ -8,9 +8,10 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class ArticleImageId implements Serializable {
 
-    private Article article;
-    private Image image;
+    private Integer article_id;
+    private Integer image_id;
 
 }

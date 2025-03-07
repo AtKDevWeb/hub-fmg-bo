@@ -11,7 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class ArticleVideoId implements Serializable {
 
-    private Article article;
-    private Video video;
+    private Integer article;
+    private Integer video;
 
 }

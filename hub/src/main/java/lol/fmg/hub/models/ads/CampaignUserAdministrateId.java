@@ -12,7 +12,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class CampaignUserAdministrateId implements Serializable {
 
-    private User user;
+    private Integer user_id;
 
-    private Campaign campaign;
+    private Integer campaign_id;
 }

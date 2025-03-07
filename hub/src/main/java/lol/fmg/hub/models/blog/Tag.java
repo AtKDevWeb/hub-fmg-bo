@@ -11,14 +11,17 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 public class Tag {
+
     @Id
     @GeneratedValue
     private Integer id;
+
     @Column(nullable = false)
     private String name;
+
     // Description of the tag
-    @Lob
     private String description;
+
     @OneToMany(mappedBy = "tag")
     private List<ArticleTag> articleTagList = new ArrayList<>();
 }
