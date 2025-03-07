@@ -1,11 +1,13 @@
 package lol.fmg.hub.models.ads;
 
 import lol.fmg.hub.models.users.User;
-import lombok.Data;
+import lombok.*;
 import jakarta.persistence.*;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @IdClass(CampaignUserAdministrateId.class)
 public class CampaignUserAdministrate {
 

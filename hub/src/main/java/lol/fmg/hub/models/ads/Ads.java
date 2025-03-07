@@ -1,6 +1,6 @@
 package lol.fmg.hub.models.ads;
 
-import lombok.Data;
+import lombok.*;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Ads {
         @Id
         @GeneratedValue

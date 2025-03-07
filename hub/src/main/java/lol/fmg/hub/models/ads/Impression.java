@@ -1,10 +1,12 @@
 package lol.fmg.hub.models.ads;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Impression {
 
     @Id

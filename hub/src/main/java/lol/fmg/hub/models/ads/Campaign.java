@@ -1,7 +1,7 @@
 package lol.fmg.hub.models.ads;
 
 import lol.fmg.hub.models.enums.StatusEnum;
-import lombok.Data;
+import lombok.*;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,6 +10,8 @@ import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Campaign {
 
     @Id

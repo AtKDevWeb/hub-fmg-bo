@@ -2,11 +2,13 @@ package lol.fmg.hub.models.ads;
 
 import lol.fmg.hub.models.blog.Video;
 
-import lombok.Data;
+import lombok.*;
 import jakarta.persistence.*;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @IdClass(AdsVideoInsertId.class)
 public class AdsVideoInsert {
 
