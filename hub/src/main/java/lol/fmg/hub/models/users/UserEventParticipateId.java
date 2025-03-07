@@ -11,7 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class UserEventParticipateId implements Serializable {
 
-    private Integer userId;
-    private Integer eventId;
+    private Integer user;
+    private Integer event;
 
 }

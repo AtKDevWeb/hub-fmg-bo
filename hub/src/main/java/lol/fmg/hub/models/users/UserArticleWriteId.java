@@ -10,6 +10,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 
 public class UserArticleWriteId implements Serializable {
-    private Integer userId;
-    private Integer articleId;
+    private Integer user;
+    private Integer article;
 }

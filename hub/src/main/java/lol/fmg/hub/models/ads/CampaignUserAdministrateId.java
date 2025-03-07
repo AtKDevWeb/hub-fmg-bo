@@ -12,6 +12,6 @@ import java.io.Serializable;
 
 public class CampaignUserAdministrateId implements Serializable {
 
-    private Integer userId;
-    private Integer campaignId;
+    private Integer user;
+    private Integer campaign;
 }

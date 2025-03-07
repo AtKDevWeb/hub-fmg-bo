@@ -9,8 +9,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class ArticleTagId implements Serializable {
 
-    private Integer articleId;
-    private Integer tagId;
+    private Integer article;
+    private Integer tag;
 
 }
 

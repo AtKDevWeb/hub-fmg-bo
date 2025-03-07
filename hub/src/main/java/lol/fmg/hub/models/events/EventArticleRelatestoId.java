@@ -11,7 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class EventArticleRelatestoId implements Serializable {
 
-    private Integer articleId;
-    private Integer eventId;
+    private Integer article;
+    private Integer event;
 
 }

@@ -9,8 +9,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class AdsImageRepresentId implements Serializable {
 
-    private Integer imageId;
-    private Integer adsId;
+    private Integer image;
+    private Integer ads;
 
 }
 

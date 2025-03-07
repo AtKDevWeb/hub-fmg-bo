@@ -9,7 +9,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class SupportEventOccursOnId implements Serializable {
 
-    private Integer supportId;
-    private Integer eventId;
+    private Integer support;
+    private Integer event;
 
 }
