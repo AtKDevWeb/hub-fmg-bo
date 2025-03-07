@@ -9,7 +9,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class EventEventTagId implements Serializable {
 
-    private EventTag eventTag;
-    private Event event;
+    private Integer eventTagId;
+    private Integer eventId;
 
 }

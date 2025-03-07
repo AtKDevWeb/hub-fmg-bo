@@ -8,8 +8,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class EventEventCategoryId implements Serializable {
 
-    private EventCategory eventCategory;
-    private Event event;
+    private Integer eventCategoryId;
+    private Integer eventId;
 
 }
 

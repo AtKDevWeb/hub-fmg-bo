@@ -10,7 +10,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class StructureUserId implements Serializable {
 
-    private User user;
-    private Structure structure;
+    private Integer userId;
+    private Integer structureId;
 
 }

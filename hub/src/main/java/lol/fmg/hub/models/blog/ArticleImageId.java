@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 public class ArticleImageId implements Serializable {
 
-    private Integer article_id;
-    private Integer image_id;
+    private Integer articleId;
+    private Integer imageId;
 
 }

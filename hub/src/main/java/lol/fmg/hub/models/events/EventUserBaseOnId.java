@@ -10,6 +10,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventUserBaseOnId implements Serializable {
-    private Game game;
-    private Event event;
+    private Integer gameId;
+    private Integer eventId;
 }

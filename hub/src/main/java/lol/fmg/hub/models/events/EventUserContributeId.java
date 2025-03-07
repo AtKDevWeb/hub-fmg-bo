@@ -10,6 +10,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EventUserContributeId implements Serializable {
-    private User user;
-    private Event event;
+    private Integer userId;
+    private Integer eventId;
 }

@@ -8,6 +8,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserSocialnetworkId implements Serializable {
-    private User user;
-    private Socialnetwork socialnetwork;
+    private Integer userId;
+    private Integer socialnetworkId;
 }

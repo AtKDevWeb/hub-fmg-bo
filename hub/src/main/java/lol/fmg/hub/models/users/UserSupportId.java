@@ -7,6 +7,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserSupportId implements Serializable {
-    private User user;
-    private Support support;
+    private Integer userId;
+    private Integer supportId;
 }

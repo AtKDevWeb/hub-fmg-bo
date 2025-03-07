@@ -8,7 +8,8 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class UserArticleWriteId implements Serializable {
-    private User user;
-    private Article article;
+    private Integer userId;
+    private Integer articleId;
 }

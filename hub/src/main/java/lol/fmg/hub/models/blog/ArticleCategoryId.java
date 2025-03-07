@@ -10,6 +10,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 
 public class ArticleCategoryId implements Serializable {
-    private Integer article_id;
-    private Integer category_id;
+    private Integer articleId;
+    private Integer categoryId;
 }
