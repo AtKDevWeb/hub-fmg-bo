@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 public class AdsVideoInsertId implements Serializable {
 
-    private Video video;
-    private Ads ads;
+    private Integer video;
+    private Integer ads;
 
 }
