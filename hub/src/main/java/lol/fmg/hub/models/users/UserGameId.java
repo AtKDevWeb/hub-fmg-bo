@@ -9,8 +9,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class UserGameId implements Serializable {
 
-    private Integer userId;
-    private Integer gameId;
+    private Integer user;
+    private Integer game;
 
 }
 
