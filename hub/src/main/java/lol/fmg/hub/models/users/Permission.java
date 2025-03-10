@@ -25,6 +25,6 @@ public class Permission {
     private Boolean isGranted;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "status_id")
     private Status status;
 }

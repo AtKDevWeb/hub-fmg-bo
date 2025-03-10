@@ -20,6 +20,6 @@ public class Impression {
     private String targetUrl;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "ads_id")
     private Ads ads;
 }
