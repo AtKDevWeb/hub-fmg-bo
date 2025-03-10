@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Click {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalDate time;
 

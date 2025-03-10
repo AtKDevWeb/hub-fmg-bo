@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Ads {
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
         private String title;
 

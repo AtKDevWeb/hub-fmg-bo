@@ -10,7 +10,7 @@ import lombok.*;
 public class Impression {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     // duration in second

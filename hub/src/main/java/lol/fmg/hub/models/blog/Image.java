@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 public class Image {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String urlSource;

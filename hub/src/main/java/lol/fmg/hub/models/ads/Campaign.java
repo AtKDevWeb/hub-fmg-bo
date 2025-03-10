@@ -15,7 +15,7 @@ import java.util.List;
 public class Campaign {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Float budget;
     private Float unitCost;

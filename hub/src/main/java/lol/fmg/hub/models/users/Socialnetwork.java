@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Socialnetwork {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String denomination;

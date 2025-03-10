@@ -19,7 +19,7 @@ public class User {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private Status status;
 
     @Column(nullable = false)
