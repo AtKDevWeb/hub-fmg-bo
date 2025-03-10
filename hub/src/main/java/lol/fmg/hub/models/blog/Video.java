@@ -26,7 +26,7 @@ public class Video {
     private Boolean autoplay;
 
     @Column(nullable = false)
-    private Boolean loop;
+    private Boolean isLoop;
 
     @Column(nullable = false)
     private Boolean muted;
@@ -39,7 +39,7 @@ public class Video {
     private VideoEnumType typeEnum;
 
     @Column(nullable = false)
-    private Boolean playinline;
+    private Boolean isPlayInLine;
 
     // description of the video
     private String description;
