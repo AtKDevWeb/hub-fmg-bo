@@ -1,31 +1,25 @@
 package lol.fmg.hub.models.ads;
 
 import jakarta.persistence.*;
+import lombok.*;
 
-import java.time.LocalDateTime;
-
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Impression {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime impressionCreatedAt;
+    // duration in second
+    private Integer duration;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(nullable = false)
+    private String targetUrl;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getImpressionCreatedAt() {
-        return impressionCreatedAt;
-    }
-
-    public void setImpressionCreatedAt(LocalDateTime impressionCreatedAt) {
-        this.impressionCreatedAt = impressionCreatedAt;
-    }
+    @ManyToOne
+    @JoinColumn(name = "ads_id")
+    private Ads ads;
 }

@@ -1,60 +1,33 @@
 package lol.fmg.hub.models.blog;
 
 import jakarta.persistence.*;
+import lol.fmg.hub.models.users.User;
+import lombok.*;
 
-import java.time.LocalDateTime;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Comment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
-    @Column(columnDefinition = "TEXT")
-    private String comment;
-    private LocalDateTime createdAt;
-    @Column (nullable = false)
-    private LocalDateTime updatedAt;
-    @Column (nullable = false)
-    private int editStatus;
+    @Column(nullable = false)
+    private String title;
 
-    public String getComment() {
-        return comment;
-    }
+    // Content of the comment
+    @Column(nullable = false)
+    private String body;
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+    private String status;
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public int getEditStatus() {
-        return editStatus;
-    }
-
-    public void setEditStatus(int editStatus) {
-        this.editStatus = editStatus;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    @ManyToOne
+    @JoinColumn(name = "article_id")
+    private Article article;
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

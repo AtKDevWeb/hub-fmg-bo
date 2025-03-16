@@ -1,60 +1,41 @@
 package lol.fmg.hub.models.ads;
 
+import lombok.*;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Ads {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false)
-    private String title;
-    @Column(columnDefinition = "TEXT")
-    private String description;
-    @Column (nullable = false)
-    private String target_url;
-    @Column(nullable = false)
-    private LocalDate creation_date;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Integer id;
+        private String title;
 
-    public LocalDate getCreation_date() {
-        return creation_date;
-    }
+        // Description of the tag
+        private String description;
+        private String targetUrl;
 
-    public void setCreation_date(LocalDate creation_date) {
-        this.creation_date = creation_date;
-    }
+        //Relation Mapping
+        @ManyToOne
+        @JoinColumn(name = "campaign_id")
+        private Campaign campaign;
 
-    public String getDescription() {
-        return description;
-    }
+        @OneToMany(mappedBy = "ads")
+        private List<Impression> impressionList = new ArrayList<>();
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+        @OneToMany(mappedBy = "ads")
+        private List<Click> clickList = new ArrayList<>();
 
-    public Long getId() {
-        return id;
-    }
+        @OneToMany(mappedBy = "ads")
+        private List<AdsVideoInsert> adsVideoInsertList = new ArrayList<>();
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+        @OneToMany(mappedBy = "ads")
+        private List<AdsImageRepresent> adsImageRepresentList = new ArrayList<>();
 
-    public String getTarget_url() {
-        return target_url;
-    }
-
-    public void setTarget_url(String target_url) {
-        this.target_url = target_url;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }
+

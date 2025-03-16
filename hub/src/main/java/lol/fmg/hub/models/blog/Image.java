@@ -1,48 +1,41 @@
 package lol.fmg.hub.models.blog;
 
 import jakarta.persistence.*;
+import lol.fmg.hub.models.ads.AdsImageRepresent;
+import lol.fmg.hub.models.enums.StatusEnum;
+import lol.fmg.hub.models.users.User;
+import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false)
-    private String url_src;
-    @Column
-    private String alt;
-    @Column(nullable = false)
+    private Integer id;
+
+    private String urlSource;
     private String title;
 
-    public String getAlt() {
-        return alt;
-    }
+    // description of the image
+    private String description;
+    private String alt;
 
-    public void setAlt(String alt) {
-        this.alt = alt;
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusEnum status;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "image")
+    private List<ArticleImage> articleImageList = new ArrayList<>();
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getUrl_src() {
-        return url_src;
-    }
-
-    public void setUrl_src(String url_src) {
-        this.url_src = url_src;
-    }
+    @OneToMany(mappedBy = "image")
+    private List<AdsImageRepresent> adsImageRepresentList = new ArrayList<>();
 }

@@ -1,60 +1,60 @@
 package lol.fmg.hub.models.events;
 
+
 import jakarta.persistence.*;
+import lol.fmg.hub.models.enums.StatusEnum;
+import lol.fmg.hub.models.users.SupportEventOccursOn;
+import lol.fmg.hub.models.users.UserEventParticipate;
+import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
-    private String description;
-    private String location;
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-    @Column (nullable = false)
-    private LocalDateTime updatedAt;
+    private Integer id;
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
+    @Column(nullable = false)
+    private String name;
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    @Column(nullable = false)
+    private LocalDate creationDate;
 
-    public String getDescription() {
-        return description;
-    }
+    @Column(nullable = false)
+    private LocalDate startDate;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    @Column(nullable = false)
+    private LocalDate endDate;
 
-    public Long getId() {
-        return id;
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusEnum statusEnum;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<EventEventTag> eventEventTagList = new ArrayList<>();
 
-    public String getLocation() {
-        return location;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<UserEventParticipate> userEventParticipateList = new ArrayList<>();
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    @OneToOne(mappedBy = "event")
+    private EventEventCategory eventEventCategory;
 
-    public String getTitle() {
-        return title;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<EventUserBaseOn> eventUserBaseOnList = new ArrayList<>();
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    @OneToMany(mappedBy = "event")
+    private List<SupportEventOccursOn> supportEventOccursOnList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "event")
+    private List<EventUserContribute> eventUserContributeList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "event")
+    private List<EventArticleRelatesto> eventArticleRelatestoList = new ArrayList<>();
 }

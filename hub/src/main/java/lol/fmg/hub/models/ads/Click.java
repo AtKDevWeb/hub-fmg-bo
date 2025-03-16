@@ -1,41 +1,25 @@
 package lol.fmg.hub.models.ads;
 
 import jakarta.persistence.*;
+import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Click {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+    private LocalDate time;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime clickCreatedAt;
+    private String userIp;
 
-    private String  userIP;
+    @ManyToOne
+    @JoinColumn(name = "ads_id")
+    private Ads ads;
 
-    public LocalDateTime getClickCreatedAt() {
-        return clickCreatedAt;
-    }
-
-    public void setClickCreatedAt(LocalDateTime clickCreatedAt) {
-        this.clickCreatedAt = clickCreatedAt;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUserIP() {
-        return userIP;
-    }
-
-    public void setUserIP(String userIP) {
-        this.userIP = userIP;
-    }
 }

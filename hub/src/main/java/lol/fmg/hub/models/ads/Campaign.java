@@ -1,96 +1,49 @@
 package lol.fmg.hub.models.ads;
 
+import lol.fmg.hub.models.enums.StatusEnum;
+import lombok.*;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Campaign {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+    private Float budget;
+    private Float unitCost;
 
-    private Long userId;
-    private String name;
-    private double budget;
-    private String category;
+    // Description of the advertising campaign
+    @Column(nullable = false)
+    private String description;
 
-    private LocalDateTime creationDate;
+    // short Description of the advertising campaign
+    @Column(nullable = false)
+    private String synopsis;
+
+    @Column(nullable = false)
+    private LocalDate creationDate;
+
+    @Column(nullable = false)
     private LocalDate startDate;
+
+    @Column(nullable = false)
     private LocalDate endDate;
 
-    private String statusCampaign;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusEnum statusEnum;
 
-    public double getBudget() {
-        return budget;
-    }
+    @OneToMany(mappedBy = "campaign")
+    private List<Ads> adsList = new ArrayList<>();
 
-    public void setBudget(double budget) {
-        this.budget = budget;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public LocalDateTime getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getStatusCampaign() {
-        return statusCampaign;
-    }
-
-    public void setStatusCampaign(String statusCampaign) {
-        this.statusCampaign = statusCampaign;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    @OneToMany(mappedBy = "campaign")
+    private List<CampaignUserAdministrate> campaignUserAdministrateList = new ArrayList<>();
 }

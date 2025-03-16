@@ -1,71 +1,59 @@
 package lol.fmg.hub.models.blog;
 
+import lol.fmg.hub.models.enums.StatusEnum;
+import lol.fmg.hub.models.events.EventArticleRelatesto;
+import lol.fmg.hub.models.users.UserArticleWrite;
+import lombok.*;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false, length = 155)
-    private String title;
-    @Column(nullable = false, columnDefinition = "TEXT")
+    private Integer id;
+
+    @Column(nullable = false)
+    private String name;
+
+    // Content of the article
+    @Column(nullable = false)
+
     private String content;
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-    @Column (nullable = false)
-    private LocalDateTime updatedAt;
-    @Column (nullable = false)
-    private int editStatus;
 
-    public String getContent() {
-        return content;
-    }
+    // short text to resume the article
+    @Column(nullable = false)
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+    private String synopsis;
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusEnum statusEnum;
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    @OneToMany(mappedBy = "article")
+    private List<ArticleVideo> articleVideoList = new ArrayList<>();
 
-    public int getEditStatus() {
-        return editStatus;
-    }
+    @OneToMany(mappedBy = "article")
+    private List<ArticleCategory> articleCategoryList = new ArrayList<>();
 
-    public void setEditStatus(int editStatus) {
-        this.editStatus = editStatus;
-    }
+    @OneToMany(mappedBy = "article")
+    private List<ArticleTag> articleTagList = new ArrayList<>();
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "article")
+    private List<ArticleImage> articleImageList = new ArrayList<>();
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "article")
+    private List<UserArticleWrite> userArticleWriteList = new ArrayList<>();
 
-    public String getTitle() {
-        return title;
-    }
+    @OneToMany(mappedBy = "article")
+    private List<EventArticleRelatesto> eventArticleRelatestoList = new ArrayList<>();
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    @OneToMany(mappedBy = "article")
+    private List<Comment> commentList = new ArrayList<>();
 }
